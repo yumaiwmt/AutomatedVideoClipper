@@ -1,6 +1,6 @@
 import os
 from audio_extraction import audio_extraction
-from transcription import transcribe_audio
+from audio_transcription import transcribe_audio
 
 def run_pipeline(video_filename):
     print("Starting Automated Video Clipper Pipeline")
@@ -28,5 +28,5 @@ def run_pipeline(video_filename):
     print("\nPipeline Phase 1 & 2 Completed.")
 
 if __name__ == "__main__":
-    video = "short_test_vid.mp4" 
+    video = "short_test_vid2.mp4" 
     run_pipeline(video)

@@ -18,6 +18,7 @@ def extract_overlay(video_path, sample_rate = 1.0, lang="jpn", output_json_path=
 
     results = []
     frame_count = 0
+    current_entry = None
 
     print(f'Extracting text from video frames')
 

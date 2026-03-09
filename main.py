@@ -13,9 +13,13 @@ def run_pipeline(video_filename):
         print(f"Video file not found.")
         return
 
+# Phase 1: Audio Extraction
+
     print(f"Starting audio extraction from {video_filename}")
     audio_path = audio_extraction(video_filename, audio_output)
     print(f"Audio saved as: {audio_path}")
+
+# Phase 2: Audio Transcription (OpenAI Whisper)
 
     print(f"Transcribing {audio_path}")
     try:
@@ -24,8 +28,18 @@ def run_pipeline(video_filename):
     except Exception as e:
         print(f"Transcription failed: {e}")
         return
+    
+# Phase 3: OCR Overlay
 
-    print("\nPipeline Phase 1 & 2 Completed.")
+    print("Starting OCR overlay extraction")
+    try:
+        overlay_json_path = extract_overlay(video_filename, sample_rate=1.0, lang="jpn", output_json_path=f"{base_name}_overlay.json")
+        print(f"OCR overlay extraction completed. Results saved to {overlay_json_path}")
+    except Exception as e:
+        print(f"OCR overlay extraction failed: {e}")
+        return
+
+    print("\nPipeline Completed.")
 
 if __name__ == "__main__":
     video = "short_test_vid2.mp4" 

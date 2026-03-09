@@ -1,6 +1,7 @@
 import os
 from audio_extraction import audio_extraction
 from audio_transcription import transcribe_audio
+from overlay_text_extraction import extract_overlay
 
 def run_pipeline(video_filename):
     print("Starting Automated Video Clipper Pipeline")
